@@ -23,9 +23,8 @@ Voici trois exemples de manières dont un modèle LSTM peut être utilisé dans 
 
 Il est important de noter que, comme tous les modèles d'apprentissage automatique, les modèles LSTM ne sont pas infaillibles et peuvent entraîner des erreurs de prédiction. Il est donc recommandé de les utiliser en complément d'autres techniques de trading et de gestion des risques.
 
-Strategie triple lstm
 
-network error
+Strategie triple lstm
 
 Il est également recommandé de testez et validez votre stratégie sur des données historiques avant de la mettre en œuvre sur des données réelles. Cela vous permettra de vous assurer que votre stratégie est fiable et de minimiser les risques de pertes financières. De plus, il est recommandé de rester vigilant et de suivre de près les performances de votre stratégie, afin de détecter et corriger rapidement tout problème éventuel.
 
@@ -61,15 +60,12 @@ Exemple en python CNN-LSTM multivarié et une fois que le modèle a été entra�
 
 Voici un exemple de code Python qui montre comment entraîner et utiliser un modèle de réseau de neurones convolutionnel à états lointains (CNN-LSTM) multivarié pour effectuer des prévisions de prix dans le contexte du trading :
 
-Copy code
+
 
 # Importer les modules nécessaires from tensorflow.keras.layers import Input, LSTM, Dense, Conv1D, MaxPooling1D from tensorflow.keras.models import Model # Définir les dimensions des données d'entrée num_features = 4 # Nombre de variables d'entrée (par exemple, prix, volume, indicateurs économiques, etc.) timesteps = 10 # Nombre de points de données à utiliser pour chaque prévision # Définir les couches du modèle input_layer = Input(shape=(timesteps, num_features)) conv_layer = Conv1D(filters=64, kernel_size=2, activation='relu')(input_layer) pooling_layer = MaxPooling1D(pool_size=2)(conv_layer) lstm_layer = LSTM(64, activation='relu')(pooling_layer) output_layer = Dense(1, activation='linear')(lstm_layer) # Créer le modèle en utilisant les couches définies ci-dessus model = Model(inputs=input_layer, outputs=output_layer) # Compiler le modèle en utilisant une fonction de perte et un optimiseur model.compile(loss='mean_squared_error', optimizer='adam') # Entraîner le modèle sur les données d'entraînement model.fit(X_train, y_train, epochs=10, batch_size=32) # Évaluer le modèle sur les données de test scores = model.evaluate(X_test, y_test, batch_size=32) print("Perte sur les données de test :", scores) # Utiliser le modèle pour effectuer des prévisions sur de nouvelles données predictions = model.predict(X_new) 
 
 Dans cet exemple, X_train et y_train sont des matrices de données d'entraînement, tandis que X_test et y_test sont des matrices de données de test. X_new est une matrice de données sur lesquelles vous souhaitez effectuer des prévisions. Le modèle est entraîné sur les données d'entraînement en utilisant la fonction fit, puis évalué sur les données de test en utilisant la fonction evaluate. Enfin, le modèle est utilisé pour effectuer des prévisions sur les données X_new en
 
-Continue
-
-network error
 
 Il est également recommandé de tester et valider votre stratégie sur des données historiques avant de la mettre en œuvre sur des données réelles. Cela vous permettra de vous assurer que votre stratégie est fiable et de minimiser les risques de pertes financières.
 
@@ -77,7 +73,8 @@ Il est également important de se rappeler que le trading comporte des risques e
 
 Implémentation du modèle dans une stratégie concrete dans freqtrade
 
-2 / 2
+
+Freqtrade :
 
 Freqtrade est un framework open-source de trading automatisé pour les crypto-monnaies. Vous pouvez utiliser un modèle de réseau de neurones convolutionnel à états lointains (CNN-LSTM) multivarié dans une stratégie de trading en le intégrant dans Freqtrade.
 
